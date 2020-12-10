@@ -1,0 +1,112 @@
+
+
+
+
+set previewer ~/.config/lf/preview
+
+
+set preview true
+set hidden false
+set color256 true
+set drawbox true
+set icons true
+set ignorecase true
+set number
+set relativenumber
+
+
+
+# Custom Functions
+
+cmd open ${{
+
+    case $(file --mime-type "$f" -bL) in
+        text/*|application/json) nvim -- "$f" ;;
+	image/*|application/pdf) devour sxiv -- '"$f"' ;;
+        video/*|application/pdf) devour mpv -- '"$f"' ;;
+	application/x-pie-executable) st -- '"$f"' ;;
+
+	*) devour xdg-open -- '"$f"' ;;
+    esac
+}}
+
+cmd setwallpaper %xwallpaper --zoom "$f"
+
+cmd mkdir ${{
+	echo "file name"
+	read ans
+	mkdir $ans
+
+}}
+
+
+
+cmd chmod ${{
+	echo "Mode Bits: "
+	read ans
+	 for file in "$fx"
+	 do
+	 	sudo chmod $ans $file
+	done
+}}
+
+cmd schmod ${{
+	echo "Mode Bits: "
+	read ans
+	 for file in "$fx"
+	 do
+	 	chmod $ans $file
+	done
+}}
+
+#drag and drop
+
+cmd dragon %dragondrop -a -x $fx
+cmd dragon-stay %dragondrop -a $fx
+cmd dragon-individual %dragondrop $fx
+
+#drag and drop binds
+
+map DR dragon
+map DS dragon-stay
+map DI dragon-individual
+
+
+#functions
+map <a-w> setwallpaper
+map C chmod
+map SC schmod
+
+map <a-u> ${{
+  case "$f" in
+      *.zip) unzip "$f" ;;
+      *.tar.gz) tar -xzvf "$f" ;;
+      *.tar.bz2) tar -xjvf "$f" ;;
+      *.tar) tar -xvf "$f" ;;
+      *) lf -remote "send echo Unsupported format" ;;
+  esac
+}}
+
+#files
+map <a-n> mkdir
+
+
+#preview command
+map <c-r> %$HOME/.config/lf/image clear && lf -remote "send reload"
+
+#map k %$HOME/.config/lf/image clear && lf -remote "send up" $HOME/.config/lf/image "$f"
+
+map w $$HOME/.config/lf/image clear & $SHELL
+
+
+map IM !devour sxiv $( pwd )
+
+#bookmarks
+map LF cd ~/.config/lf
+map SX cd ~/.config/sxhkd
+map W cd ~/wallpaper
+map R cd ~/Downloads/a/R
+map ST cd ~/HDD/anime_s
+map MU cd ~/HDD/music
+map ME cd ~/HDD/anime/ani_r
+map SE cd ~/.config
