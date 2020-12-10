@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Simple script that uses maim to take a screenshot
+num="$(ls ~/scr_sht | wc -l)"
+output=$HOME/scr_sht/"scr_sht$(( $num+1 )).png"
+
+case "$1" in
+    "full") maim -u -q "$output" || exit;;
+    "sel") maim -s -u -q "$output" || exit ;;
+esac
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd ~/Downloads/protonvpn/
+vpn=$( find *.ovpn | dmenu -l 20 ) && st -c "floating" -e abduco -A vpn sudo openvpn --config $vpn
+
+
+
+
+
+
+

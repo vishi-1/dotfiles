@@ -1,0 +1,116 @@
+
+#wallpaper
+super + w
+	setbg ~/wallpaper/
+super + alt + w
+	setbg ~/wallpaper/hwall
+
+super + control + w
+	sxiv -t ~/wallpaper/
+super + control + e
+	sxiv -t ~/wallpaper/hwall/
+
+#functions
+
+super + Print
+	~/.config/sxhkd/scr full
+super + shift + Print
+	~/.config/sxhkd/scr sel
+
+
+super + q
+	$( echo -e "poweroff\nreboot" | dmenu -sb DarkMagenta )
+
+	#vpn
+super + alt + grave
+	~/.config/sxhkd/vpn
+#applications
+
+super + control + { f,shift + f }
+	{firefox -P curr ,firefox -P}
+super + control + d
+	qutebrowser
+super + control + c
+	chromium
+super + control + d
+	waterfox
+super + control + b
+	blender
+super + control + k
+	krita
+super + control + g
+	gimp
+super + control + o
+	godot
+super + control + i
+	godot-mono
+
+super + control + t
+	torbrowser-launcher
+super + control + a
+	atom
+super + control + v
+	code
+super + control + m
+	pcmanfm
+super + control + p
+	keepass
+
+#term_apps
+
+super + alt + h
+	st -e htop
+
+#super + alt + Return
+#	st -c "floating"
+
+super + alt + Return
+	urxvt
+
+super + control + Return
+	termite
+
+super + alt + f
+#	st -e lf
+	st -e ~/.config/lf/lfrun
+super + alt + g
+	st -e ranger
+
+super + alt + n
+	st -e newsboat
+#other
+
+#super + alt + l
+#	st -c "floating" -e sudo devour ~/Linux_Pentablet_V1.2.13.1/Pentablet_Driver.sh
+
+super + alt + p
+	killall picom || picom
+
+
+super + alt + c
+	clipmenu
+#xdo commands
+
+#xdo kill
+super + shift +Escape
+	xdo kill
+
+#xdo move
+super + shift + l
+	xdo move -x +30
+super + shift + h
+	xdo move -x -30
+
+super + shift + j
+	xdo move -y +30
+super + shift + k
+	xdo move -y -30
+#xdo resize
+super + shift + control + l
+	xdo resize -w +30
+super +  shift + control + h
+	xdo resize -w -30
+super +  shift + control + j
+	xdo resize -h +30
+super + shift + control + k
+	xdo resize -h -30
