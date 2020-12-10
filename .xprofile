@@ -1,0 +1,22 @@
+
+picom &
+
+slstatus &
+
+sxhkd &
+
+imwheel -b 45
+
+#xwallpaper --zoom /home/vishi/wallpaper/__scathach_and_scathach_skadi_fate_and_1_more_drawn_by_atha_leejuiping__504ffe401bbded82684e6c76fa3245c2.png
+
+xwallpaper --zoom /home/vishi/wallpaper/FATE\ Scathach\ thumb-1920-724769.jpg
+
+#xwallpaper --zoom /home/vishi/wallpaper/752196.jpg
+
+clipmenud &
+numlockx on
+
+#export GTK_IM_MODULE='uim'
+#export QT_IM_MODULE='uim'
+#uim-xim &
+#export XMODIFIERS='@im=uim'
